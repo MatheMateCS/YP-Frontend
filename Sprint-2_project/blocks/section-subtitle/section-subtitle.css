@@ -1,0 +1,12 @@
+.section-subtitle {
+  width: 60%;
+  margin: auto;
+  z-index: 3;
+  text-align: center;
+  line-height: 34px;
+  font-size: 24px;
+  font-weight: normal;
+  color:#000;
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+}
+

@@ -1,0 +1,14 @@
+.cards {
+  margin: auto;
+  width: 920px;
+  display: flex;
+  justify-content:flex-start;
+  flex-direction: row;
+  flex-wrap: wrap;
+  column-gap: 100px;
+/*   
+  border-color: red;
+  border-width: 5;
+  border-style: dashed; */
+}
+
