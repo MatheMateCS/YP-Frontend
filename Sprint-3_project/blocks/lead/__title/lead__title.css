@@ -1,0 +1,17 @@
+.lead__title {
+    margin: auto;
+    max-width: 720px;
+    text-align: center;
+    font-weight: 900;
+    font-size: 96px;
+    line-height: 100px;
+}
+
+@media screen and (max-width: 768px) { /* phones */
+    .lead__title {
+        max-width: 288px;
+        font-weight: 900;
+        font-size: 40px;
+        line-height: 44px;
+    }
+}

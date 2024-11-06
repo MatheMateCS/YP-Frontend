@@ -1,0 +1,30 @@
+.place {
+    max-width: 984px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3, auto);
+    column-gap: 40px;
+}
+
+@media screen and (max-width: 1280px) { 
+    .place {
+        column-gap: 32px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .place {
+        grid-template-columns: 0.95fr 1fr;
+        grid-template-rows:repeat(3, max-content);
+        row-gap: 0;
+        column-gap: 28px;
+    }
+}
+
+@media screen and (max-width: 768px) { /* phones */
+    .place {
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+    }
+}

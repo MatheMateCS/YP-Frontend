@@ -1,0 +1,32 @@
+.place__paragraph {
+    padding: 0;
+    margin-top: 48px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 163%;
+    grid-column: 2;
+}
+
+.place__paragraph:last-of-type {
+    margin-top: 25px;
+}
+
+@media screen and (max-width: 1024px) {
+    .place__paragraph {
+        padding: 0;
+        height: fit-content;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 163%;
+    }
+}
+
+@media screen and (max-width: 768px) { /* phones */
+    .place__paragraph {
+        margin: 32px 16px 0;
+    }
+    
+    .place__paragraph:last-of-type {
+        margin: 25px 16px;
+    }
+}

@@ -1,0 +1,19 @@
+.footer__links {
+    position: inherit;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 18px;
+}
+
+
+@media screen and (max-width: 768px) { /* phones */    
+    .footer__links {
+        position: relative;
+        flex-direction: column;
+        gap: 32px;
+    }
+}
