@@ -60,6 +60,10 @@ closePopup.forEach(function (closeCross) {
     });
 });
 
+function toggleLike(evt) { // handler
+    evt.target.classList.toggle("card__like-button_is-active");
+}
+
 
 // @todo: Функция создания карточки
 function createCard(cardData) {
@@ -69,6 +73,9 @@ function createCard(cardData) {
     const likeButton = card.querySelector(".card__like-button");
     const deleteButton = card.querySelector(".card__delete-button");
 
+    likeButton.addEventListener("click", toggleLike);
+    deleteButton.addEventListener("click", removeCard);
+
     cardTitle.textContent = cardData.name;
     cardImage.src = cardData.link;
     cardImage.alt = cardData.name;
@@ -76,16 +83,17 @@ function createCard(cardData) {
 }
 
 
-
 // @todo: Функция удаления карточки
-function removeCard() {
-
+function removeCard(evt) { // handler
+    evt.target.closest('.places__item').remove();
 }
 
 function togglePopup(popup) {
     popup.classList.toggle("popup_is-opened");
 }
 
+
+// initial loading
 initialCards.forEach(function(item){
     cardsContainer.append(createCard(item));
 });
