@@ -7,6 +7,13 @@ const profilePopup = document.querySelector(".popup_type_edit");
 const cardPopup = document.querySelector(".popup_type_new-card");
 const imagePopup = document.querySelector(".popup_type_image");
 
+profilePopup.classList.add('popup_is-animated');
+cardPopup.classList.add('popup_is-animated');
+imagePopup.classList.add('popup_is-animated');
+
+const imagePopupImage = imagePopup.querySelector(".popup__image");
+const imagePopupName = imagePopup.querySelector(".popup__caption");
+
 // Profile information
 const profileTitle = document.querySelector(".profile__title");
 const profileDescription = document.querySelector(".profile__description");
@@ -17,6 +24,7 @@ formEditProfile.addEventListener("submit", submitProfileEdit);
 
 const formAddCard = document.forms["new-place"];
 formAddCard.addEventListener("submit", submitAddCard);
+
 
 function submitProfileEdit(evt) { // handler
     evt.preventDefault();
@@ -52,6 +60,14 @@ function openAddCard(evt) { // handler
     togglePopup(cardPopup);
 }
 
+
+function openCardImage(evt) { // handler
+    imagePopupImage.src = evt.target.src;
+    imagePopupImage.alt = evt.target.alt;
+    imagePopupName.textContent = evt.target.alt;
+    togglePopup(imagePopup);
+}
+
 const closePopup = document.querySelectorAll(".popup__close");
 closePopup.forEach(function (closeCross) {
     closeCross.addEventListener('click', function () {
@@ -75,6 +91,7 @@ function createCard(cardData) {
 
     likeButton.addEventListener("click", toggleLike);
     deleteButton.addEventListener("click", removeCard);
+    cardImage.addEventListener("click", openCardImage);
 
     cardTitle.textContent = cardData.name;
     cardImage.src = cardData.link;
@@ -97,6 +114,7 @@ function togglePopup(popup) {
 initialCards.forEach(function(item){
     cardsContainer.append(createCard(item));
 });
+
 
 
 // @todo: Вывести карточки на страницу
