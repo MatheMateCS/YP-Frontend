@@ -1,11 +1,22 @@
+// @todo: Темплейт карточки
 const cardsContainer = document.querySelector(".places__list");
+const cardTemplate = document.querySelector("#card-template");
+
+// @todo: DOM узлы
 const profilePopup = document.querySelector(".popup_type_edit");
 const cardPopup = document.querySelector(".popup_type_new-card");
 const imagePopup = document.querySelector(".popup_type_image");
 
-// @todo: Темплейт карточки
+// Profile information
+const profileTitle = document.querySelector(".profile__title");
+const profileDescription = document.querySelector(".profile__description");
 
-// @todo: DOM узлы
+const formProfile = document.forms["edit-profile"];
+
+// Buttons
+const profileButton = document.querySelector(".profile__edit-button");
+profileButton.addEventListener("click", editProfile(profilePopup));
+
 
 // @todo: Функция создания карточки
 function createCard(cardData) {
@@ -29,6 +40,12 @@ function removeCard() {
 
 function togglePopup(popup) {
     popup.classList.toggle("popup_is-opened");
+}
+
+function editProfile(popup) {
+    formProfile.elements.name.value = profileTitle.textContent;
+    formProfile.elements.description.value = profileDescription.textContent;
+    togglePopup(popup);
 }
 
 
