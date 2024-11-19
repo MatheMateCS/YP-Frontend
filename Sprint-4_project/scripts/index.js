@@ -16,7 +16,7 @@ const formEditProfile = document.forms["edit-profile"];
 formEditProfile.addEventListener("submit", submitProfileEdit);
 
 const formAddCard = document.forms["new-place"];
-// formAddCard.addEventListener("submit", submitProfileEdit);
+formAddCard.addEventListener("submit", submitAddCard);
 
 function submitProfileEdit(evt) { // handler
     evt.preventDefault();
@@ -25,23 +25,30 @@ function submitProfileEdit(evt) { // handler
     togglePopup(profilePopup);
 }
 
+function submitAddCard(evt) { // handler
+    evt.preventDefault();
+    const name = formAddCard.elements.placename.value;
+    const link = formAddCard.elements.link.value;
+    const newCard = createCard({ name : name, link : link });
+    cardsContainer.prepend(newCard);
+    togglePopup(cardPopup);
+}
+
 // Buttons
 const editProfileButton = document.querySelector(".profile__edit-button");
-editProfileButton.addEventListener('click', editProfile);
+editProfileButton.addEventListener('click', openEditProfile);
 
-function editProfile(evt) { // handler
+function openEditProfile(evt) { // handler
     formEditProfile.elements.name.value = profileTitle.textContent;
     formEditProfile.elements.description.value = profileDescription.textContent;
     togglePopup(profilePopup);
 }
 
 const addCardButton = document.querySelector(".profile__add-button");
-addCardButton.addEventListener('click', temp);
+addCardButton.addEventListener('click', openAddCard);
 
-function temp(evt) { // handler
+function openAddCard(evt) { // handler
     formAddCard.reset();
-
-
     togglePopup(cardPopup);
 }
 
