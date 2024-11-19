@@ -11,11 +11,28 @@ const imagePopup = document.querySelector(".popup_type_image");
 const profileTitle = document.querySelector(".profile__title");
 const profileDescription = document.querySelector(".profile__description");
 
+// Forms
 const formProfile = document.forms["edit-profile"];
+formProfile.addEventListener("submit", submitProfileEdit);
+
+function submitProfileEdit(evt) { // handler
+    evt.preventDefault();
+    profileTitle.textContent = formProfile.elements.name.value;
+    profileDescription.textContent = formProfile.elements.description.value;
+    togglePopup(profilePopup);
+}
 
 // Buttons
 const profileButton = document.querySelector(".profile__edit-button");
-profileButton.addEventListener("click", editProfile(profilePopup));
+profileButton.addEventListener('click', editProfile);
+
+const closePopup = profilePopup.querySelectorAll(".popup__close");
+closePopup.forEach(function (popup) {
+    popup.addEventListener('click', function () {
+        const pop = popup.closest('.popup');
+        togglePopup(pop);
+    });
+});
 
 
 // @todo: Функция создания карточки
@@ -42,11 +59,12 @@ function togglePopup(popup) {
     popup.classList.toggle("popup_is-opened");
 }
 
-function editProfile(popup) {
+function editProfile(popup) { // handler
     formProfile.elements.name.value = profileTitle.textContent;
     formProfile.elements.description.value = profileDescription.textContent;
-    togglePopup(popup);
+    togglePopup(profilePopup);
 }
+
 
 
 // @todo: Вывести карточки на страницу
